@@ -12,7 +12,7 @@ const port = process.env.PORT || 3000;
 app.use(express.json());
 
 
-const whiteList = ['http://127.0.0.1:5500','http://localhost:3000','Aqui puede ir algun aplicación que ya se encuentre desplegada en un dominio'];
+const whiteList = ['http://localhost:8080','http://127.0.0.1:5501','Aqui puede ir algun aplicación que ya se encuentre desplegada en un dominio'];
 
 const options = {
   origin : (origin,callback) =>{
@@ -27,6 +27,9 @@ const options = {
 
 app.use(cors(options));
 
+routerApi(app);
+
+
 // app.get('/nueva-ruta', (req, res) => {
 //   res.send("Nueva- Ruta");
 // })
@@ -35,7 +38,6 @@ app.use(cors(options));
 //   res.send("Servidor de express");
 // });
 
-routerApi(app);
 
 app.use(logErrors);
 app.use(boomErrorHandler);
