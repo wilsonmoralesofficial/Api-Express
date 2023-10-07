@@ -12,20 +12,21 @@ const port = process.env.PORT || 3000;
 app.use(express.json());
 
 
-const whiteList = ['http://localhost:8080','http://127.0.0.1:5501','Aqui puede ir algun aplicación que ya se encuentre desplegada en un dominio'];
+// const whiteList = ['http://localhost:3000','http://localhost:8080','http://127.0.0.1:5501','Aqui puede ir algun aplicación que ya se encuentre desplegada en un dominio'];
 
-const options = {
-  origin : (origin,callback) =>{
-    if(whiteList.includes(origin)){
-      callback(null,true);
-    }
-    else{
-      callback(new Error('Cliente no permitido'))
-    }
-  }
-}
+// const options = {
+//   origin : (origin,callback) =>{
+//     if(whiteList.includes(origin)){
+//       callback(null,true);
+//     }
+//     else{
+//       callback(new Error('Cliente no permitido'))
+//     }
+//   }
+// }
 
-app.use(cors(options));
+// app.use(cors(options));
+app.use(cors());
 
 routerApi(app);
 
